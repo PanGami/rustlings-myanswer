@@ -11,7 +11,7 @@
 // written to use a Hashmap, complete it to pass the test.
 
 // Make me pass the tests!
-
+// I AM NOT DONE
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a hint.
 
 use std::collections::HashMap;
@@ -39,18 +39,18 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.        
         scores
-            .entry(team_1_name.clone()) // clone untuk digunakan nanti, semenjak "entry" expects value nya adalah String bukan &String 
-            .and_modify(|t| {           // "t" menjadi value dari "scores: HashMap<String, Team>" yaitu team type.
-                t.goals_scored += team_1_score;
-                t.goals_conceded += team_2_score; 
+            .entry(team_1_name.clone())// clone untuk digunakan nanti, semenjak "entry" expects value nya adalah String bukan &String 
+            .and_modify(|T| {           // "t" menjadi value dari "scores: HashMap<String, Team>" yaitu team type.
+                T.goals_scored += team_1_score;
+                T.goals_conceded += team_2_score; 
             })
             .or_insert(Team {name: team_1_name, goals_scored: team_1_score, goals_conceded: team_2_score});
     
         scores
             .entry(team_2_name.clone()) // Same as team_1 implementation
-            .and_modify(|t|{ 
-                t.goals_scored += team_2_score; 
-                t.goals_conceded += team_1_score; 
+            .and_modify(|T|{ 
+                T.goals_scored += team_2_score; 
+                T.goals_conceded += team_1_score; 
             })
             .or_insert(Team {name: team_2_name, goals_scored: team_2_score, goals_conceded: team_1_score});
     }
