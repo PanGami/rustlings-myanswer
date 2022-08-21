@@ -11,7 +11,6 @@
 // written to use a Hashmap, complete it to pass the test.
 
 // Make me pass the tests!
-// I AM NOT DONE
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a hint.
 
 use std::collections::HashMap;
