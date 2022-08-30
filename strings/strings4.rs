@@ -5,7 +5,6 @@
 // you think each value is. That is, add either `string_slice` or `string`
 // before the parentheses on each line. If you're right, it will compile!
 // No hints this time!
-
 fn string_slice(arg: &str) {
     println!("{}", arg);
 }
