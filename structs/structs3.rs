@@ -3,7 +3,6 @@
 // defined the Package struct and we want to test some logic attached to it.
 // Make the code compile and the tests pass!
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a hint.
-
 #[derive(Debug)]
 struct Package {
     sender_country: String,
