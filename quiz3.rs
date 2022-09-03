@@ -14,10 +14,29 @@
 
 // Execute `rustlings hint quiz3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+// Docs https://doc.rust-lang.org/std/fmt/trait.Display.html
+use std::fmt; 
+pub enum Grade {
+    FloatType(f32),
+    StrType(String),
+}
+
+impl fmt::Display for Grade {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Grade::FloatType(float_var) => {
+                write!(f, "{}", float_var)
+            },
+            Grade::StrType(str_var) => {
+                write!(f, "{}", str_var)
+            },
+            _ => Err(fmt::Error),
+        }
+    }
+}
 
 pub struct ReportCard {
-    pub grade: f32,
+    pub grade: Grade,
     pub student_name: String,
     pub student_age: u8,
 }
@@ -32,11 +51,10 @@ impl ReportCard {
 #[cfg(test)]
 mod tests {
     use super::*;
-
     #[test]
     fn generate_numeric_report_card() {
         let report_card = ReportCard {
-            grade: 2.1,
+            grade: Grade::FloatType(2.1),
             student_name: "Tom Wriggle".to_string(),
             student_age: 12,
         };
@@ -50,7 +68,7 @@ mod tests {
     fn generate_alphabetic_report_card() {
         // TODO: Make sure to change the grade here after you finish the exercise.
         let report_card = ReportCard {
-            grade: 2.1,
+            grade: Grade::StrType(String::from("A+")),
             student_name: "Gary Plotter".to_string(),
             student_age: 11,
         };
